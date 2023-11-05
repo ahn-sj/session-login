@@ -11,7 +11,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -20,7 +19,6 @@ public class SecurityConfiguration {
             .headers((headerConfig) -> headerConfig.frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()))
             .authorizeHttpRequests(
                 (authorizeRequests) -> authorizeRequests
-                    .requestMatchers(PathRequest.toH2Console()).permitAll()
                     .requestMatchers("/api/v1/login", "/api/v1/join").permitAll()
 //                .requestMatchers("/api/v1/users").hasRole()
 //                .requestMatchers("/api/v1/admins").hasRole()
